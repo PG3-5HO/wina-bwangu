@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <title>WINA BWANGU</title>
+    </head>
+    <body>
+        <header>
+            <h1>WINA BWANGU</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="Wina_App.html">HOME</a></li>
+                <li><a href="Dash_board.html">DASHBOARD</a></li>
+                <li><a href="Services.html">SERVICES</a></li>
+            </ul>
+        </nav>
+
+        <section id="transactions">
+            <h2>Transaction</h2>
+            <div id="transaction-form">
+                <div class="form-row">
+                    <label>Transaction ID</label>
+                    <input type="text" id="transaction-id" readonly>
+                </div>
+
+                <div class="form-row">
+                    <label>Mobile Booth</label>
+                    <select id="booth-select" onchange="onBoothChange()">
+                        <option value="">-- Select Booth --</option>
+                        <option value="Wina1"> Wina 1 </option>
+                        <option value="Wina2"> Wina 2 </option>
+                        <option value="Wina3"> Wina 3 </option>
+                        <option value="Wina4"> Wina 4 </option>
+                        <option value="Wina5"> Wina 5 </option>
+                        <option value="Wina6"> Wina 6 </option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label>Location</label>
+                    <input type="text" id="show-location" readonly placeholder="Select a booth first">
+                </div>
+
+                <div class="form-row">
+                    <label>Service</label>
+                    <select id="select-service" onchange="onServiceChange()" disabled>
+                        <option value=""> Select Booth first </option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label>Revenue per Kwacha</label>
+                    <input type="text" id="show-revenue" readonly placeholder="Select a service first">
+                </div>
+
+                <div class="form-row">
+                    <label>Transaction Amount</label>
+                    <input type="number" id="amount" placeholder="Enter amount" oninput="calculateTax()" min="0">
+                </div>
+
+                <div class="form-row">
+                    <label>VAT (16%)</label>
+                    <input type="text" id="vat-value" readonly placeholder="Enter amount first">
+                </div>
+
+                <div class="form-row">
+                    <label>Amount plus Tax</label>
+                    <input type="text" id="after-tax" readonly placeholder="Enter amount first">
+                </div>
+
+
+                <div class="form-row">
+                    <button id="submit-btn" onclick="submitTransaction()">Make Transaction</button>
+                    <button id="clear-btn" onclick="clearForm()">Clear</button>
+                </div>
+
+
+            </div>
+        </section>
+
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <title>Login</title>
+    </head>
+    <body>
+        <header>
+            <h1>WINA BWANGU </h1>
+        </header>
+
+        <section id="login-section">
+            <div id="login-form">
+                <h2>Login</h2>
+                <div class="form-row">
+                    <label>Username</label>
+                    <input type="text" id="username" placeholder="Enter username">
+                </div>
+                <div class="form-row">
+                    <label>Password</label>
+                    <input type="text" id="password" placeholder="Enter password">
+                </div>
+                <div class="form-row">
+                    <button id="submit-btn" onclick="login()">Login</button>
+                </div>
+                <p id="error-message"></p>
+            </div>
+        </section>
+        <script src="login.js"></script>
+    </body>  
+</html>

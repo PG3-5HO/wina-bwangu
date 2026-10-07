@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <title>WINA BWANGU</title>
+    </head>
+    <body>
+        <header>
+            <h1>DASHBOARD</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="Wina_App.html">HOME</a></li>
+                <li><a href="Services.html">SERVICES</a></li>
+                <li><a href="#" onclick="logout()">LOGOUT</a></li>
+            </ul>
+        </nav>
+
+         <h2 id="dash-heading">Service Summary</h2>
+            <div id="service-summary">
+                <table id="summary-table">
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Monthly limit (ZMW)</th>
+                            <th>Cumulative Total (ZMW)</th>
+                            <th>Remaining Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody id="summary-body">
+                        <!-- Rows added by JS -->
+                    </tbody>
+                </table>
+            </div>
+
+         <h2 id="dash-heading">Booth Summary</h2>
+         <div id = "booth-summary">
+            <table id="booth-table">
+                <thead>
+                    <tr>
+                        <th>Booth</th>
+                        <th>Location</th>
+                        <th>Cumulative Total (ZMW)</th>
+                        <th>Frequently Used Service</th>
+                    </tr>
+                </thead>
+                <tbody id="booth-body">
+                    <!--Rows added by js-->
+                </tbody>
+            </table>
+         </div>
+
+         <h2 id="dash-heading">Company Audit</h2>
+         <div id="company-summary">
+            <table id="company-table">
+                <thead>
+                    <tr>
+                        <th>Total Revenue Generated (ZMW)</th>
+                        <th>Line of Credit(ZMW)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="total-revenue"></td>
+                        <td id="total-capital"></td>
+                    </tr>
+                </tbody>
+            </table>
+         </div>
+
+         <h2 id="dash-heading">Revenue vs Capital</h2>
+         <div id="pie-chart">
+            <canvas id="pieChart" width="300" height="300"></canvas>
+         </div>
+        
+        <script src="dashboard.js"></script>
+    </body>
+</html>
