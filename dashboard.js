@@ -1,3 +1,5 @@
+if(sessionStorage.getItem("loggedIn")!== "true"){window.location.href="Login.html";}
+
 const monthlyLimit ={
     "Airtel Money": 350000,
     "MTN Money": 160000,
@@ -7,7 +9,7 @@ const monthlyLimit ={
 };
 
 window.onload = function(){
-    fetch("http://localhost:3000/get-transactions")
+    fetch("https://wina-bwangu-wd53.onrender.com/get-transactions")
     .then(function(response) {return response.json();})
     .then(function(transactions){
 
