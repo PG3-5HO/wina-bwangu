@@ -18,9 +18,9 @@ function generateID(){
 
 window.onload =function(){
     Promise.all([
-        fetch("http://localhost:3000/get-booths").then(r => r.json()),
-        fetch("http://localhost:3000/get-services").then(r => r.json()),
-        fetch("http://localhost:3000/get-last-id").then(r => r.json())
+        fetch("https://wina-bwangu-wd53.onrender.com/get-booths").then(r => r.json()),
+        fetch("https://wina-bwangu-wd53.onrender.com/get-services").then(r => r.json()),
+        fetch("https://wina-bwangu-wd53.onrender.com/get-last-id").then(r => r.json())
     ])
     .then(function(results){
         const booths = results[0];
@@ -160,7 +160,7 @@ function submitTransaction(){
 
     // submitting the content 
 
-    fetch("http://localhost:3000/add-transaction",{
+    fetch("https://wina-bwangu-wd53.onrender.com/add-transaction",{
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({

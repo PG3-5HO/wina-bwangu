@@ -6,7 +6,7 @@ function login(){
     if(!username){ alert("Please enter a username"); return; }
     if(!password){ alert ("Please enter a password"); return; }
 
-    fetch("http://localhost:3000/login", {
+    fetch("https://wina-bwangu-wd53.onrender.com/login", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({username,password})
