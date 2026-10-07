@@ -103,3 +103,24 @@ app.get("/get-booths", function(req,res){
         res.json(results);
     });
 });
+
+app.post("/login", function(req,res){
+    const { username , password } = req.body;
+
+    db.query("SELECT * FROM users WHERE username = ? AND password = ?", [username,password], function(err,results){
+
+        if(err){
+            console.log("Login error: " + err.message);
+            req.status(500).json({error: err.message});
+            return;
+        }
+
+        if(results.length === 0){
+            res.status(401).json({message: "Invalid username or password"});
+            return;
+        }
+
+        res.json({message: "Login successful"});
+    });
+
+});
