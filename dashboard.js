@@ -175,6 +175,75 @@ window.onload = function(){
             legend.appendChild(item);
         });
 
+                // Pie chart 2 - Revenue by service
+        const serviceRevenue2 = {
+            "Airtel Money": 0,
+            "MTN Money": 0,
+            "Zamtel Money": 0,
+            "Zanaco": 0,
+            "FNB": 0
+        };
+
+        transactions.forEach(function(t) {
+            serviceRevenue2[t.service] += parseFloat(t.amount) * parseFloat(t.revenue_per_kwacha);
+        });
+
+        const canvas2 = document.getElementById("pieChart2");
+        const ctx2 = canvas2.getContext("2d");
+        const total2 = Object.values(serviceRevenue2).reduce(function(a, b) { return a + b; }, 0);
+        const cx2 = canvas2.width / 2;
+        const cy2 = canvas2.height / 2;
+        const radius2 = 180;
+
+        const slices2 = [
+            { value: serviceRevenue2["Airtel Money"], color: "#e94560", label: "Airtel Money" },
+            { value: serviceRevenue2["MTN Money"],    color: "#f4a261", label: "MTN Money" },
+            { value: serviceRevenue2["Zamtel Money"], color: "#2a9d8f", label: "Zamtel Money" },
+            { value: serviceRevenue2["Zanaco"],       color: "#457b9d", label: "Zanaco" },
+            { value: serviceRevenue2["FNB"],          color: "#6a4c93", label: "FNB" }
+        ];
+
+        let startAngle2 = -Math.PI / 2;
+
+        slices2.forEach(function(slice) {
+            const sliceAngle = (slice.value / total2) * 2 * Math.PI;
+
+            ctx2.beginPath();
+            ctx2.moveTo(cx2, cy2);
+            ctx2.arc(cx2, cy2, radius2, startAngle2, startAngle2 + sliceAngle);
+            ctx2.closePath();
+            ctx2.fillStyle = slice.color;
+            ctx2.fill();
+            ctx2.strokeStyle = "white";
+            ctx2.lineWidth = 2;
+            ctx2.stroke();
+
+            const midAngle = startAngle2 + sliceAngle / 2;
+            const lx = cx2 + (radius2 * 0.65) * Math.cos(midAngle);
+            const ly = cy2 + (radius2 * 0.65) * Math.sin(midAngle);
+            ctx2.fillStyle = "white";
+            ctx2.font = "bold 13px Poppins";
+            ctx2.textAlign = "center";
+            ctx2.textBaseline = "middle";
+            ctx2.fillText((slice.value / total2 * 100).toFixed(1) + "%", lx, ly);
+
+            startAngle2 += sliceAngle;
+        });
+
+        // Legend for chart 2
+        const legend2 = document.getElementById("chart-legend-2");
+        slices2.forEach(function(slice) {
+            const item = document.createElement("div");
+            item.style.display = "flex";
+            item.style.alignItems = "center";
+            item.style.gap = "8px";
+            item.style.marginTop = "8px";
+            item.innerHTML = `
+                <span style="width:16px; height:16px; background:${slice.color}; display:inline-block; border-radius:50%"></span>
+                <span>${slice.label}: ZMW ${slice.value.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2})}</span>
+            `;
+            legend2.appendChild(item);
+        });
 
 
     })
@@ -182,3 +251,9 @@ window.onload = function(){
         console.log("Error: "+err.message);
     });
 };
+
+function logout(){
+    sessionStorage.removeItem("loggedIn")
+    window.location.href="Login.html";
+}
+
