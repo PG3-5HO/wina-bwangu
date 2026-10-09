@@ -121,7 +121,7 @@ window.onload = function(){
         const total = totalRevenue + totalCapital;
         const cx = canvas.width / 2;
         const cy = canvas.height / 2;
-        const radius = 120;
+        const radius = 150;
 
         const slices = [
             {value: totalRevenue, color:"rgb(52,118,216)",label:"Revenue"},
@@ -193,7 +193,7 @@ window.onload = function(){
         const total2 = Object.values(serviceRevenue2).reduce(function(a, b) { return a + b; }, 0);
         const cx2 = canvas2.width / 2;
         const cy2 = canvas2.height / 2;
-        const radius2 = 180;
+        const radius2 = 150;
 
         const slices2 = [
             { value: serviceRevenue2["Airtel Money"], color: "#e94560", label: "Airtel Money" },
